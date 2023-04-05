@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Counter from './Components/Counter';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
 
 function App() {
+  const [show,setShow] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Workshop HOOKS</h1>
+      <button onClick={()=> setShow(!show)}>Show</button>
+      {
+        show && <Counter/>
+      }
+      <Typography component="legend">Read only</Typography>
+      <Rating name="read-only" value={4} readOnly />
     </div>
   );
 }
